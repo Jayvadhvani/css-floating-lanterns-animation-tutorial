@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+  <meta charset="UTF-8">
+  <title>CSS Floating Lanterns Animation Tutorial</title>
+  <style>
+    body { background: linear-gradient(to top, #1e1b4b, #000); color: white; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100vh; margin: 0; padding-bottom: 50px; overflow: hidden; font-family: serif; position: relative;}
+    .stars { position: absolute; inset: 0; background: transparent; z-index: -1;}
+    .ui { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding: 30px; border-radius: 12px; text-align: center; border: 1px solid rgba(255,255,255,0.1); z-index: 10;}
+    h1 { margin-top: 0; font-size: 2rem; font-weight: normal; letter-spacing: 2px;}
+    textarea { width: 300px; height: 80px; background: rgba(0,0,0,0.3); border: 1px solid #4b5563; color: white; border-radius: 8px; padding: 15px; font-family: serif; resize: none; margin-bottom: 20px;}
+    button { background: #fb923c; color: white; padding: 12px 30px; font-size: 1.2rem; border-radius: 30px; border: none; cursor: pointer; transition: 0.3s; font-family: serif;}
+    button:hover { background: #f97316; box-shadow: 0 0 20px rgba(251, 146, 60, 0.5);}
+    /* Lantern Config */
+    .lantern { position: absolute; width: 40px; height: 60px; background: linear-gradient(#fde047, #ea580c); border-radius: 5px 5px 15px 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; pointer-events: none;}
+    .lantern::after { content:''; position: absolute; bottom: 0; width: 10px; height: 10px; background: #fff; border-radius: 50%; filter: blur(4px); box-shadow: 0 0 20px #fff;}
+    @keyframes float { 0% { transform: translateY(110vh) scale(0.8); opacity: 1; margin-left: 0;} 30% { margin-left: 30px; opacity: 1;} 70% { margin-left: -30px; } 100% { transform: translateY(-30vh) scale(0.3); opacity: 0; margin-left: 0; } }
+  </style>
+
+            <meta name="description" content="A beautiful component imported via Developer Studio AI.">
+            <meta name="robots" content="index, follow">
+            <meta property="og:title" content="CSS Floating Lanterns Animation Tutorial">
+            <meta property="og:description" content="A beautiful component imported via Developer Studio AI.">
+            <meta property="og:image" content="https://codescompiler.com/images/posts/css-floating-lanterns.png">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="CSS Floating Lanterns Animation Tutorial">
+            <meta name="twitter:description" content="A beautiful component imported via Developer Studio AI.">
+            <meta name="twitter:image" content="https://codescompiler.com/images/posts/css-floating-lanterns.png">
+          </head>
+<body>
+
+<!-- ── CODESCOMPILER DEMO HEADER ── -->
+<style>
+  #cc-demo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 48px;
+    background: #1a1b26;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: white;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+  }
+  #cc-demo-header a { text-decoration: none; color: white; }
+  .cc-logo { font-size: 14px; font-weight: 900; }
+  .cc-logo span { color: #04aa6d; }
+  .cc-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.12); margin: 0 12px; }
+  .cc-title { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cc-actions { display: flex; gap: 8px; }
+  .cc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: rgba(255,255,255,0.7);
+  }
+  .cc-btn:hover { background: rgba(255,255,255,0.15); color: white; }
+  .cc-btn svg { width: 14px; height: 14px; }
+  @media (max-width: 600px) {
+    .cc-title { display: none; }
+    .cc-btn span { display: none; }
+  }
+</style>
+<header id="cc-demo-header">
+  <div style="display: flex; align-items: center; overflow: hidden;">
+    <a href="https://codescompiler.com" class="cc-logo" target="_blank" rel="dofollow"><span>Codes</span>Compiler</a>
+    <div class="cc-sep"></div>
+    <h1 class="cc-title" title="CSS Floating Lanterns Animation Tutorial" style="margin: 0; font-size: 13px; font-weight: 600;">📺 CSS Floating Lanterns Animation Tutorial</h1>
+  </div>
+  <div class="cc-actions">
+    <a href="https://codescompiler.com/blog/css-floating-lanterns" class="cc-btn" target="_blank" rel="dofollow" title="Read the full post">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+      <span>Back to Post</span>
+    </a>
+    <a href="index.html" class="cc-btn" target="_blank" download="css-floating-lanterns.html" title="Download source file">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      <span>Download</span>
+    </a>
+    <button onclick="document.getElementById('cc-demo-header').style.display='none'" class="cc-btn" title="Hide header for fullscreen view">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l5-5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+      <span>Fullscreen</span>
+    </button>
+  </div>
+</header>
+<!-- ================================== -->
+
+  <div class="stars" id="stars"></div>
+  <div class="ui">
+    <h1>Send a Wish</h1>
+    <p style="color: #9ca3af; font-size: 0.95rem; margin-top: 0; margin-bottom: 20px; max-width: 300px; line-height: 1.5;">
+      Type your wish, dream, or thought into the box below and click <strong>Release Lantern</strong> to send it floating into the night sky!
+    </p>
+    <textarea id="wishText" placeholder="May the world find peace..."></textarea><br>
+    <button onclick="release()">Release Lantern</button>
+  </div>
+  <script>
+    // Gen stars
+    for(let i=0; i<100; i++){
+      let s=document.createElement('div');
+      s.style = `position:absolute; width:2px; height:2px; background:white; top:${Math.random()*100}%; left:${Math.random()*100}%; opacity:${Math.random()};`;
+      document.getElementById('stars').appendChild(s);
+    }
+    function release() {
+      const text = document.getElementById('wishText').value;
+      if(!text) return;
+      document.getElementById('wishText').value = '';
+      
+      const lant = document.createElement('div');
+      lant.className = 'lantern';
+      lant.style.left = (Math.random() * 80 + 10) + 'vw';
+      lant.style.animation = `float ${Math.random()*5 + 10}s ease-in forwards`;
+      lant.style.boxShadow = '0 0 30px rgba(234, 88, 12, 0.8), 0 0 60px rgba(253, 224, 71, 0.6)';
+      
+      document.body.appendChild(lant);
+      setTimeout(()=>lant.remove(), 15000);
+    }
+  </script>
+
+
+</body></html>
